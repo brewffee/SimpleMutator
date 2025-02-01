@@ -3,7 +3,6 @@
 
 ########################################################################
 
-TERM_EMULATOR=kitty             # Change this to your preferred terminal emulator
 UT_PATH="../__UTDirLinux"       # Must be a legitimate UT installation
 
 ########################################################################
@@ -22,7 +21,7 @@ echo "Running Unreal Tournament"
 killall ut-bin-x86
 
 # The game doesn't have a console, spawn one that reads UnrealTournament.log live as it updates
-$TERM_EMULATOR sh -c "watch -n 0.1 tac $(realpath $SYS)/UnrealTournament.log" &
+$TERM sh -c "watch -n 0.1 tac $(realpath $SYS)/UnrealTournament.log" &
 $SYS/ut-bin-x86 -nohomedir
 
 # Once it's finished, delete the copied files
