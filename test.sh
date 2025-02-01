@@ -3,8 +3,8 @@
 
 ########################################################################
 
-TERM_EMULATOR=kitty       # Change this to your preferred terminal emulator
-UT_PATH="../__UTDir"      # Must be a legitimate UT installation
+TERM_EMULATOR=kitty             # Change this to your preferred terminal emulator
+UT_PATH="../__UTDirLinux"       # Must be a legitimate UT installation
 
 ########################################################################
 
@@ -17,14 +17,13 @@ for F in "${FILES[@]}"; do
   cp -v "$F" "$SYS"
 done
 
-# todo: Prefer native version instead, WINE was just easier to set up at the time
 # Run UnrealTournament
-echo "Running Unreal Tournament in WINE"
-wineserver -k
+echo "Running Unreal Tournament"
+killall ut-bin-x86
 
 # The game doesn't have a console, spawn one that reads UnrealTournament.log live as it updates
 $TERM_EMULATOR sh -c "watch -n 0.1 tac $(realpath $SYS)/UnrealTournament.log" &
-wine "$SYS/UnrealTournament.exe"
+$SYS/ut-bin-x86 -nohomedir
 
 # Once it's finished, delete the copied files
 for F in "${FILES[@]}"; do
