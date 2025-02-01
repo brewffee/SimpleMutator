@@ -47,6 +47,9 @@ STATUS=$?
 cleanup() {
   printf "\nCleaning up...\n"
 
+  # Remove the project folder from UT's root folder
+  rm -rvf "${UT_PATH:?}/${PKG:?}"
+
   # Restore the user's UT data folders
   if [ -d ~/.utpg.user ]; then
     rm -rvf ~/.utpg
