@@ -2,6 +2,8 @@
 A basic starter Mutator project for Unreal Tournament 1999. For 
 use on Linux only, but can be ported to Windows easily.
 
+![Showcase of the example mutator](./Screenshot.png)
+
 ## Prerequisites
 * A legitimate copy of Unreal Tournament. You can obtain
 one at [OldUnreal's website](https://www.oldunreal.com/downloads/unrealtournament/).
